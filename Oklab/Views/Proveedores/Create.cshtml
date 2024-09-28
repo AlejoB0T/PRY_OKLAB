@@ -1,0 +1,116 @@
+﻿@model CrudCoreOklab.Models.Proveedor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/EmpStyle.css">
+</head>
+<body>
+    <div class="registro">
+        <h1 class="registro__titulo">Crear Proveedor</h1>
+        <form class="registro__formulario" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <fieldset class="registro__formulario-seccion">
+                <legend>Información Básica</legend>
+                <div class="registro__formulario-columnas">
+                    <div class="registro__formulario-columna">
+                        <div class="registro__formulario-campo">
+                            <label for="IdTipoDocumento" class="registro__formulario-label">Tipo de Documento</label>
+                            <select asp-for="IdTipoDocumento" asp-items="ViewBag.IdTipoDocumento" class="registro__formulario-select" id="IdTipoDocumento"></select>
+                        </div>
+
+                        <div class="registro__formulario-campo">
+                            <label for="Documento" class="registro__formulario-label">Documento</label>
+                            <input asp-for="NumeroDocumento" class="registro__formulario-input" id="Documento" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)" />
+                            <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
+                        </div>
+
+                        <div class="registro__formulario-campo">
+                            <label for="Nombre" class="registro__formulario-label">Nombre</label>
+                            <input asp-for="Nombre" class="registro__formulario-input" id="Nombre" placeholder="Nombre" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+
+                        <div class="registro__formulario-campo">
+                            <label for="NombreComercial" class="registro__formulario-label">Nombre Comercial</label>
+                            <input asp-for="NombreComercial" class="registro__formulario-input" id="NombreComercial" placeholder="Nombre Comercial" />
+                            <span asp-validation-for="NombreComercial" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="registro__formulario-columna">
+                        <div class="registro__formulario-campo">
+                            <label for="Email" class="registro__formulario-label">E-mail</label>
+                            <input asp-for="EmailProveedor" class="registro__formulario-input" id="Email" placeholder="E-mail" />
+                            <span asp-validation-for="EmailProveedor" class="text-danger"></span>
+                        </div>
+
+                        <div class="registro__formulario-campo">
+                            <label for="Telefono" class="registro__formulario-label">Teléfono</label>
+                            <input asp-for="Telefono" class="registro__formulario-input" id="Telefono" placeholder="Teléfono" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+
+                        <div class="registro__formulario-campo">
+                            <label for="Direccion" class="registro__formulario-label">Dirección</label>
+                            <input asp-for="Direccion" class="registro__formulario-input" id="Direccion" placeholder="Dirección" />
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+
+                        <div class="registro__formulario-campo">
+                            <label for="FormaPago" class="registro__formulario-label">Forma de Pago</label>
+                            <select asp-for="FormaPago" class="registro__formulario-select" id="FormaPago">
+                                <option value="">Seleccione una opción</option>
+                                <option value="transferencia">Transferencia</option>
+                                <option value="efectivo">Efectivo</option>
+                                <option value="cheque">Cheque</option>
+                            </select>
+                            <span asp-validation-for="FormaPago" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="registro__formulario-seccion">
+                <legend>Información Bancaria y Ubicación</legend>
+                <div class="registro__formulario-columnas">
+                    <div class="registro__formulario-columna">
+                        <div class="registro__formulario-campo">
+                            <label for="Banco" class="registro__formulario-label">Banco</label>
+                            <select asp-for="Banco" class="registro__formulario-select" id="Banco">
+                                <option value="">Seleccione un banco</option>
+                                <option value="BANCOLOMBIA">BANCOLOMBIA</option>
+                                <option value="NEQUI">NEQUI</option>
+                                <option value="DAVIPLATA">DAVIPLATA</option>
+                            </select>
+                            <span asp-validation-for="Banco" class="text-danger"></span>
+                        </div>
+
+                        <div class="registro__formulario-campo">
+                            <label for="Cuenta" class="registro__formulario-label">Cuenta</label>
+                            <input asp-for="NumeroCuenta" class="registro__formulario-input" id="Cuenta" placeholder="Cuenta" />
+                            <span asp-validation-for="NumeroCuenta" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </fieldset>
+
+            <div class="registro__formulario-campo">
+                <input type="submit" value="Crear" class="registro__boton" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

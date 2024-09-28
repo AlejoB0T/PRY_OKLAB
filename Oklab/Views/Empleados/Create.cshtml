@@ -1,0 +1,245 @@
+﻿@model CrudCoreOklab.Models.Empleado
+
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration</title>
+    <link rel="stylesheet" href="/css/EmpStyle.css">
+</head>
+<body>
+    <div class="registro">
+        <form class="registro__formulario" asp-action="Create">
+            <h2 class="registro__titulo">¡BIENVENIDO, REGISTRA UN NUEVO EMPLEADO!</h2>
+
+            <div class="registro__formulario-seccion">
+                <fieldset>
+                    <legend>DATOS PERSONALES</legend>
+                    <div class="registro__formulario-columnas">
+                        <div class="registro__formulario-columna">
+                            <div class="registro__formulario-campo">
+                                <label asp-for="IdTipoDocumento" class="registro__formulario-label">Tipo Documento</label>
+                                <select asp-for="IdTipoDocumento" class="registro__formulario-select" asp-items="ViewBag.IdTipoDocumento"></select>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="FechaNacimientoEmpleado" class="registro__formulario-label">Fecha Nacimiento</label>
+                                <input asp-for="FechaNacimientoEmpleado" class="registro__formulario-input" type="date" />
+                                <span asp-validation-for="FechaNacimientoEmpleado" class="text-danger"></span>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="DocumentoEmpleado" class="registro__formulario-label">Número de Documento</label>
+                                <input asp-for="DocumentoEmpleado" class="registro__formulario-input" />
+                                <span asp-validation-for="DocumentoEmpleado" class="text-danger"></span>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="NombreEmpleado" class="registro__formulario-label">Nombre Completo</label>
+                                <input asp-for="NombreEmpleado" class="registro__formulario-input" />
+                                <span asp-validation-for="NombreEmpleado" class="text-danger"></span>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="ApellidoEmpleado" class="registro__formulario-label">Apellido</label>
+                                <input asp-for="ApellidoEmpleado" class="registro__formulario-input" />
+                                <span asp-validation-for="ApellidoEmpleado" class="text-danger"></span>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="EmailEmpleado" class="registro__formulario-label">Correo Electrónico</label>
+                                <input asp-for="EmailEmpleado" class="registro__formulario-input" />
+                                <span asp-validation-for="EmailEmpleado" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="registro__formulario-columna">
+                            <div class="registro__formulario-campo">
+                                <label asp-for="TipoSangreEmpleado" class="registro__formulario-label">Tipo Sangre</label>
+                                <select asp-for="TipoSangreEmpleado" class="registro__formulario-select" asp-items="ViewBag.TipoSangreEmpleado">
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="EstadoCivilEmpleado" class="registro__formulario-label">Estado Civil</label>
+                                <select asp-for="EstadoCivilEmpleado" class="registro__formulario-select" asp-items="ViewBag.EstadoCivilEmpleado">
+                                    <option value="soltero">Soltero</option>
+                                    <option value="casado">Casado</option>
+                                    <option value="divorciado">Divorciado</option>
+                                    <option value="viudo">Viudo</option>
+                                </select>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="NumeroHijosEmpleado" class="registro__formulario-label">Número de Hijos</label>
+                                <input asp-for="NumeroHijosEmpleado" class="registro__formulario-input" />
+                                <span asp-validation-for="NumeroHijosEmpleado"></span>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="CelularEmpleado" class="registro__formulario-label">Número de Celular</label>
+                                <input asp-for="CelularEmpleado" class="registro__formulario-input" />
+                                <span asp-validation-for="CelularEmpleado" class="text-danger"></span>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="DireccionEmpleado" class="registro__formulario-label">Dirección de Residencia</label>
+                                <input asp-for="DireccionEmpleado" class="registro__formulario-input" />
+                                <span asp-validation-for="DireccionEmpleado" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="registro__formulario-seccion">
+                <fieldset>
+                    <legend>DATOS LABORALES</legend>
+                    <div class="registro__formulario-columnas">
+                        <div class="registro__formulario-columna">
+                            <div class="registro__formulario-campo">
+                                <label asp-for="CargoEmpleado" class="registro__formulario-label">Cargo</label>
+                                <select asp-for="CargoEmpleado" class="registro__formulario-select" asp-items="ViewBag.Cargo">
+                                    <option value="Recepcionista">Recepcionista</option>
+                                    <option value="Camarero/a">Camarero/a</option>
+                                    <option value="Administrativo">Administrativo</option>
+                                    <option value="Oficios Varios">Oficios Varios</option>
+                                </select>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="CajaCompensacionEmpleado" class="registro__formulario-label">Caja Compensación</label>
+                                <select asp-for="CajaCompensacionEmpleado" class="registro__formulario-select" asp-items="ViewBag.Caja">
+                                    <option value="Colsubsidio">Colsubsidio</option>
+                                    <option value="Compensar">Compensar</option>
+                                    <option value="Comfama">Comfama</option>
+                                    <option value="Cafam">Cafam</option>
+                                    <option value="Comfandi">Comfandi</option>
+                                </select>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="TipoContratoEmpleado" class="registro__formulario-label">Tipo de Contrato</label>
+                                <select asp-for="TipoContratoEmpleado" class="registro__formulario-select" asp-items="ViewBag.Contrato">
+                                    <option value="Fijo">Fijo</option>
+                                    <option value="Indefinido">Indefinido</option>
+                                    <option value="Obra o Labor">Obra o Labor</option>
+                                    <option value="Aprendizaje">Aprendizaje</option>
+                                    <option value="Temporal">Temporal</option>
+                                    <option value="Prestación de Servicios">Prestación de Servicios</option>
+                                </select>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="SalarioEmpleado" class="registro__formulario-label">Salario</label>
+                                <input asp-for="SalarioEmpleado" class="registro__formulario-input" />
+                                <span asp-validation-for="SalarioEmpleado" class="text-danger"></span>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="ContraseñaCorporativaEmpleado" class="registro__formulario-label">Contraseña Empleado</label>
+                                <input asp-for="ContraseñaCorporativaEmpleado" class="registro__formulario-input" type="password" />
+                                <span asp-validation-for="ContraseñaCorporativaEmpleado" class="text-danger"></span>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="RolEmpleado" class="registro__formulario-label">ROL Empleado</label>
+                                <select asp-for="RolEmpleado" class="registro__formulario-select" asp-items="ViewBag.ROL">
+                                    <option value="Empleado">Empleado</option>
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="NA">NA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="registro__formulario-columna">
+                            <div class="registro__formulario-campo">
+                                <label asp-for="EPSEmpleado" class="registro__formulario-label">EPS</label>
+                                <select asp-for="EPSEmpleado" class="registro__formulario-select" asp-items="ViewBag.EPS">
+                                    <option value="Salud Total">Salud Total</option>
+                                    <option value="Nueva EPS">Nueva EPS</option>
+                                    <option value="Compensar">Compensar</option>
+                                    <option value="Medimas">Medimas</option>
+                                    <option value="EPS Sura">EPS Sura</option>
+                                    <option value="Famisanar">Famisanar</option>
+                                    <option value="Coomeva EPS">Coomeva EPS</option>
+                                </select>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="FondoPensionEmpleado" class="registro__formulario-label">Fondo Pensión</label>
+                                <select asp-for="FondoPensionEmpleado" class="registro__formulario-select" asp-items="ViewBag.Fondo">
+                                    <option value="Colpensiones">Colpensiones</option>
+                                    <option value="Porvenir">Porvenir</option>
+                                    <option value="Protección">Protección</option>
+                                    <option value="Skandia">Skandia</option>
+                                    <option value="Colfondos">Colfondos</option>
+                                </select>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="ARLEmpleado" class="registro__formulario-label">ARL</label>
+                                <select asp-for="ARLEmpleado" class="registro__formulario-select" asp-items="ViewBag.ARL">
+                                    <option value="Equidad">Equidad</option>
+                                    <option value="Liberty">Liberty</option>
+                                    <option value="Bolívar">Bolívar</option>
+                                    <option value="Aurora">Aurora</option>
+                                    <option value="Colpatria">Colpatria</option>
+                                    <option value="Sura">Sura</option>
+                                    <option value="Positiva">Positiva</option>
+                                    <option value="Colmena">Colmena</option>
+                                </select>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="UsuarioCorporativoEmpleado" class="registro__formulario-label">Usuario Empleado</label>
+                                <input asp-for="UsuarioCorporativoEmpleado" class="registro__formulario-input" />
+                                <span asp-validation-for="UsuarioCorporativoEmpleado" class="text-danger"></span>
+                            </div>
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="JefeInmediatoEmpleado" class="registro__formulario-label">Jefe Empleado</label>
+                                <select asp-for="JefeInmediatoEmpleado" class="registro__formulario-input" asp-items="ViewBag.JefeInmediato">
+                                    <option value="Oscar Castro">Oscar Castro</option>
+                                    <option value="Kelly Arroyave">Kelly Arroyave</option>
+                                    <option value="Luis Ruiz">Luis Ruiz</option>
+                                    <option value="Ana Maria Cordoba">Ana Maria Cordoba</option>
+                                    <option value="Bryan Zapata">Bryan Zapata</option>
+									<option value="Alejandro Ruiz">Alejandro Ruiz</option>
+                                </select>
+                                <span asp-validation-for="JefeInmediatoEmpleado" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="registro__formulario-campo">
+                                <label asp-for="FechaInicioContratoEmpleado" class="registro__formulario-label">Fecha Inicio Contrato</label>
+                                <input asp-for="FechaInicioContratoEmpleado" class="registro__formulario-input" type="date" />
+                                <span asp-validation-for="FechaInicioContratoEmpleado" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="registro__formulario-campo">
+                <button type="submit" class="registro__boton registro__boton-create">Guardar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

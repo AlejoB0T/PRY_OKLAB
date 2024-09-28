@@ -1,0 +1,250 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/api/placeholder/1920/1080);
+    background-size: cover;
+    background-attachment: fixed;
+    font-size: 16px;
+}
+
+.registro {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, .5);
+    max-width: 70rem;
+    width: 95%;
+    background-color: rgba(248, 248, 248, 0.95);
+    padding: 2.5rem;
+}
+
+.registro__header {
+    margin-bottom: 2rem;
+}
+
+.registro__titulo {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #333;
+}
+
+.registro__main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.registro__section {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, .1);
+}
+
+.registro__subtitulo {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.registro__formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.registro__formulario-campos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.registro__formulario-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.registro__formulario-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.registro__formulario-input,
+.registro__formulario-select {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, .1);
+    padding: 0.625rem;
+}
+
+    .registro__formulario-input:focus,
+    .registro__formulario-select:focus {
+        border-color: #ce967b;
+        outline: none;
+    }
+
+.registro__formulario-acciones {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.registro__boton {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, .5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.registro__boton--primario {
+    background-color: #ce967b;
+    color: #fff;
+}
+
+    .registro__boton--primario:hover {
+        background-color: #b87a5c;
+    }
+
+
+.registro__boton--small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.registro__boton--editar {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+    .registro__boton--editar:hover {
+        background-color: #45a049;
+    }
+
+.registro__boton--eliminar {
+    background-color: #f44336;
+    color: #fff;
+}
+
+    .registro__boton--eliminar:hover {
+        background-color: #d32f2f;
+    }
+
+.registro__tabla-contenedor {
+    overflow-x: auto;
+}
+
+.registro__tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .registro__tabla th,
+    .registro__tabla td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .registro__tabla th {
+        background-color: #f8f8f8;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .registro__tabla tr:hover {
+        background-color: #f5f5f5;
+    }
+
+.registro__boton_crear {
+    background-color: #ce977b96;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0px 0px 16px 0px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, .5);
+}
+
+    .registro__boton_crear:hover {
+        background-color: #ce977b;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .registro__boton_crear:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
+    }
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .registro {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .registro__titulo {
+        font-size: 1.6rem;
+    }
+
+    .registro__subtitulo {
+        font-size: 1.2rem;
+    }
+
+    .registro__formulario-campos {
+        grid-template-columns: 1fr;
+    }
+
+    .registro__formulario-acciones {
+        flex-direction: column;
+    }
+
+    .registro__boton {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    .registro {
+        padding: 1rem;
+    }
+
+    .registro__titulo {
+        font-size: 1.4rem;
+    }
+
+    .registro__subtitulo {
+        font-size: 1.1rem;
+    }
+}

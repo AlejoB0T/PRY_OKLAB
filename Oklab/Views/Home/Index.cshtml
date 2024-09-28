@@ -1,0 +1,465 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutNoNavbarFooter.cshtml";
+}
+@{
+    ViewData["Title"] = "OKLAB";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKLAB</title>
+    <meta name="description" content="Hotel Oklab ofrece lujo y confort en cada estancia. Disfruta de servicios excepcionales, ubicación ideal y atención personalizada para una experiencia inolvidable.">
+    <meta name="keywords" content="Hotel Oklab, alojamiento de lujo, habitaciones confortables
+    reserva de hotel, servicio personalizado">
+    <meta name="author" content="Grupo Oklab">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+
+    <!-- Barra de navegación con enlaces a las diferentes secciones del sitio -->
+    <nav class="Navbar">
+        <a href="#Nosotros"><h2 class="Navbar__Ttulo">OKLAB</h2></a>
+        
+        <img src="img/logo.png" alt="logoOklab" class="Navbar--Logo">
+        <label>
+            <a href="#">Inicio</a> <br>
+        </label>
+        <label>
+            <a asp-controller="Clientes" asp-action="Create">Registrate</a><br>
+        </label>
+       
+        <label id="contactenos">
+            <a asp-action="EnviarCorreoDePrueba">Contáctenos</a><br>
+        </label>
+        
+    </nav>
+
+    <!-- Sección de encabezado con un título y subtítulo -->
+    <header class="Header">
+        <div class="Header__Content Container">
+            <h2>hotel oklab</h2>
+            <p>
+                Descubre el confort en OKLAB, tu hogar lejos de casa.
+            </p>
+        </div>
+    </header>
+
+    <!-- Sección "Nosotros" describiendo el hotel y sus valores -->
+    <section class="Nosotros Conteiner" id="Nosotros">
+        <h2> NOSOTROS </h2>
+
+        <p>
+            Descubre nuestro hotel moderno y asequible, donde la comodidad se une al estilo a precios accesibles. Con habitaciones diseñadas para maximizar el espacio y la comodidad, ofrecemos una estancia confortable sin comprometer tu presupuesto. Disfruta de comodidades como Wi-Fi gratuito y una ubicación conveniente cerca de lugares de interés. En nuestro hotel tipo low cost, tu comodidad y satisfacción son nuestra prioridad.
+        </p>
+        <div class="Nosotros__Blog">
+
+            <!-- Primer bloque en la sección "Nosotros" con valores y compromisos -->
+            <div class="Nostros__Content">
+                <img src="https://i.pinimg.com/736x/96/ed/bf/96edbfce47b074246eebb2a0b71e2664.jpg" alt="">
+                <h3>
+                    Valores y Compromisos
+                </h3>
+                <p class="Parrafos">
+                    Nuestros valores fundamentales en OKLAB incluyen respeto, integridad y compromiso con la sostenibilidad. Estos valores se reflejan en nuestro trato a los huéspedes y la comunidad. Creemos que ofrecer una experiencia excepcional va de la mano con proteger nuestro entorno.
+                </p>
+            </div>
+
+            <!-- Segundo bloque en la sección "Nosotros" sobre el personal de trabajo -->
+            <div class="Nostros__Content">
+                <img src="https://i.pinimg.com/564x/b8/3e/ac/b83eac26af2fd5f693fb6f533229425d.jpg" alt="">
+                <h3>Personal de Trabajo</h3>
+                <p class="Parrafos">
+                    Nuestro equipo está formado por profesionales apasionados y dedicados que se esfuerzan por brindar una experiencia inolvidable a cada huésped. Desde nuestros ejecutivos hasta nuestro personal de recepción, cada miembro está comprometido con la excelencia en el servicio.
+                </p>
+            </div>
+
+            <!-- Tercer bloque en la sección "Nosotros" con testimonios y reconocimientos -->
+            <div class="Nostros__Content">
+                <img src="https://i.pinimg.com/564x/79/e6/c2/79e6c2cef39341c2935c8309d68c91f9.jpg" alt="">
+                <h3>Testimonios y Reconocimientos:</h3>
+                <p class="Parrafos">
+                    Los testimonios de nuestros clientes y los premios que hemos recibido en la industria hotelera son prueba de nuestra dedicación a la excelencia y la calidad en todo lo que hacemos. Nuestros huéspedes valoran nuestra hospitalidad y servicio excepcional.
+                </p>
+            </div>
+        </div>
+
+        <!-- Icono de mapa con enlace a la ubicación -->
+        <div>
+            <a href="https://maps.app.goo.gl/cf7X49smSGYEg2Gg9" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mapa-icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M11 18l-2 -1l-6 3v-13l6 -3l6 3l6 -3v7.5" />
+                    <path d="M9 4v13" />
+                    <path d="M15 7v5" />
+                    <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                    <path d="M20.2 20.2l1.8 1.8" />
+                </svg><p>Cl. 51 #57-70, La Candelaria, Medellín</p>
+            </a>
+        </div>
+
+        <!-- Insertar mapa de Google -->
+        <div >
+        <iframe class="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0658786801664!2d-75.57795869106157!3d6.255051526201932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44290214a53d0b%3A0x9b14f640dfe28201!2sCentro%20de%20Servicios%20y%20Gestion%20Empresarial%20%E2%80%93%20Sena!5e0!3m2!1ses-419!2sco!4v1715830875615!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <!-- Fin de la inserción del mapa -->
+
+    </section>
+
+        <!-- Sección de servicios del hotel -->
+    <section class="Servicios" id="Servicios">
+
+        <div class="Servicios__content container">
+            <h2>hotel servicios</h2>
+            <div class="Servicios__Groups">
+                <div class="Servicios__Group">
+                    <i class='bx bx-car' style='color:#fffbfb'></i>
+                    <h3>Estacionamiento Gratis</h3>
+                </div>
+    
+                <div class="Servicios__Group">
+                    <i class='bx bx-bed' style='color:#fffbfb'></i>
+                    <h3>Gran Comodidad</h3>
+                </div>
+    
+                <div class="Servicios__Group">
+                    <i class='bx bxs-lock' style='color:#fffbfb'></i>
+                    <h3>Máxima Seguridad</h3>
+                </div>
+            </div>
+    
+            <p class="Parrafos Servicios--Parrafos">
+                ¡En OKLAB, tu seguridad y comodidad son lo primero! Con un estacionamiento vigilado las 24 horas, instalaciones cómodas y un servicio excepcional, ¡te garantizamos una estancia sin preocupaciones! ¡Bienvenido a tu hogar lejos de casa!
+            </p>
+        </div>
+    </section>
+    
+    <section class="InfoHab">
+
+        <!-- Sección de información sobre las habitaciones -->
+        <div class="InfoHab__Content Container">
+            <h2>las diferentes habitaciones</h2>
+
+            <p class="InfoHab__Parrafo">
+                "Nuestras habitaciones han sido cuidadosamente diseñadas para ofrecerle una estancia cómoda y memorable. Desde nuestras acogedoras habitaciones estándar hasta nuestras lujosas suites, cada espacio ha sido creado pensando en su comodidad y disfrute. Explore nuestras opciones y descubra el lugar perfecto para relajarse y recargar energías durante su viaje."
+            </p>
+
+            <div class="InfoHab__Group">
+
+            <!-- Grupo de diferentes tipos de habitaciones -->
+                <div class="InfoHab__Hab">
+                    <img alt="Imagen de la habitacion O" src="img/O.jpg">
+                    <h3>Habitaciones Estándar</h3>
+                    <p>
+                        Habitaciones cómodas y bien equipadas para una estancia agradable.
+                        Perfectas para viajeros que buscan una opción cómoda y asequible.
+                        Incluyen comodidades básicas para una estancia confortable.
+                    </p>
+                </div>
+    
+                <div class="InfoHab__Hab">
+                    <img alt="Imagen de la habitacion L" src="img/L.jpg">
+                    <h3>Suites de Lujo</h3>
+                    <p>
+                        Suites elegantes y espaciosas con servicios de alta calidad.
+                        Diseñadas para quienes buscan una experiencia de alojamiento exclusiva.
+                        Ofrecen comodidades premium y un ambiente lujoso para una estancia memorable.
+                    </p>
+                </div>
+    
+                <div class="InfoHab__Hab">
+                    <img alt="Imagen de la habitacion B" src="img/B.jpg">
+                    <h3>Suites Presidenciales</h3>
+                    <p>
+                        Las suites más lujosas y exclusivas del hotel.
+                        Diseñadas para aquellos que buscan lo mejor en comodidad y lujo.
+                        Incluyen amplios espacios, servicios personalizados y vistas impresionantes para una estancia inolvidable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="Habitaciones">
+
+        <div class="Hab__Cont">
+            <h2>Habitación O</h2>
+            <p>
+                Nuestra cómoda habitación O es perfecta para una estancia relajante. Con una cama queen, televisión de pantalla plana y vistas al jardín, es ideal para una escapada tranquila
+            </p>
+            <button class="btn-1" id="Modal__Open">información</button>
+        </div>
+
+        <div class="Habs Hab--O"></div>
+
+        <div class="Modal" id="Modal_O">
+            <div class="Modal__Popup">
+                <div class="Modal__Container">
+                    <img src="./img/A.jpg" alt="Imagen del Modal" class="Modal__Img">
+                    <div class="Modal__Content">
+                        <h2>Habitación O</h2>
+                        <p>
+                            Relájate en nuestra Habitación O, diseñada para ofrecerte el máximo confort con su cama queen, televisión de pantalla plana y vistas encantadoras al jardín. Disfruta de una experiencia de tranquilidad y descanso en un entorno acogedor, perfecto para tu escapada.
+                        </p>
+
+                        <div class="Modal__Servicios">
+
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-group'></i>
+                                <h3>1 - 2</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bx-wifi-off'></i>
+                                <h3>Wi-fi</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-lock' style='color:#000000'></i>
+                                <h3>Seguridad</h3>
+                            </div>
+
+                        <button class="Modal__Botom_Close" id="Modal__Botom_Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    
+
+    <section class="Habitaciones">
+
+        <div class="Habs Hab--K"></div>
+
+        <div class="Hab__Cont">
+
+            <h2>Habitación K</h2>
+            <p>
+                Disfrute de un nivel superior de confort en nuestra habitación K. Con una amplia sala de estar, una lujosa cama king y un baño de mármol, esta suite es perfecta para quienes buscan un toque de elegancia.
+            </p>
+            <button class="btn-1" id="Modal__Open1">información</button>
+        </div>
+
+        <div class="Modal" id="Modal_K">
+            <div class="Modal__Popup">
+                <div class="Modal__Container">
+                    <img src="./img/A.jpg" alt="Imagen del Modal" class="Modal__Img">
+                    <div class="Modal__Content">
+                        <h2>Habitación K</h2>
+                        <p>
+                            "Descubre el pináculo del lujo en nuestra Habitación K. Con una espaciosa sala de estar, una opulenta cama king y un elegante baño de mármol, esta suite ofrece una experiencia de confort y sofisticación sin igual. Perfecta para quienes desean un toque de distinción en su estancia."
+                        </p>
+
+                        <div class="Modal__Servicios">
+
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-group'></i>
+                                <h3>1 - 2</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bx-wifi-off'></i>
+                                <h3>Wi-fi</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-lock' style='color:#000000'></i>
+                                <h3>Seguridad</h3>
+                            </div>
+
+                        <button class="Modal__Botom_Close" id="Modal__Botom_Close1"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="Habitaciones">
+
+        <div class="Hab__Cont">
+            <h2>Habitación L</h2>
+            <p>
+                Nuestra habitación L ofrece lo último en lujo y comodidad. Con un dormitorio separado, una sala de estar espaciosa y vistas panorámicas a la ciudad, es ideal para viajeros que buscan lo mejor.
+            </p>
+            <button class="btn-1" id="Modal__Open2">información</button>
+        </div>
+
+        <div class="Habs Hab--L"></div>
+
+        <div class="Modal" id="Modal_L">
+            <div class="Modal__Popup">
+                <div class="Modal__Container">
+                    <img src="./img/A.jpg" alt="Imagen del Modal" class="Modal__Img">
+                    <div class="Modal__Content">
+                        <h2>Habitación L</h2>
+                        <p>
+                            Nuestra exclusiva Habitación L te espera con un diseño elegante, dormitorio privado, amplia sala de estar y vistas impresionantes a la ciudad. Perfecta para quienes desean una experiencia de viaje incomparable. ¡Reserva ahora y vive lo mejor!"
+                        </p>
+
+                        <div class="Modal__Servicios">
+
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-group'></i>
+                                <h3>1 - 2</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bx-wifi-off'></i>
+                                <h3>Wi-fi</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-lock' style='color:#000000'></i>
+                                <h3>Seguridad</h3>
+                            </div>
+
+                        <button class="Modal__Botom_Close" id="Modal__Botom_Close2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="Habitaciones">
+
+        <div class="Habs Hab--A"></div>
+
+        <div class="Hab__Cont">
+
+            <h2>Habitación A</h2>
+            <p>
+                Sumérjase en el lujo absoluto en nuestra habitación A. Con una decoración elegante, una bañera de hidromasaje privada y un servicio de mayordomo las 24 horas, esta suite es perfecta para una estancia inolvidable.
+            </p>
+            <button class="btn-1" id="Modal__Open3">información</button>
+        </div>
+
+        
+        <div class="Modal" id="Modal_A">
+            <div class="Modal__Popup">
+                <div class="Modal__Container">
+                    <img src="./img/A.jpg" alt="Imagen del Modal" class="Modal__Img">
+                    <div class="Modal__Content">
+                        <h2>Habitación A</h2>
+                        <p>
+                            Nuestra Habitación A te invita a disfrutar de una experiencia única con una bañera de hidromasaje privada, decoración sofisticada y servicio de mayordomo 24/7. Perfecta para crear recuerdos inolvidables. ¡Reserva tu estancia ahora!"
+                        </p>
+
+                        <div class="Modal__Servicios">
+
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-group'></i>
+                                <h3>1 - 2</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bx-wifi-off'></i>
+                                <h3>Wi-fi</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-lock' style='color:#000000'></i>
+                                <h3>Seguridad</h3>
+                            </div>
+
+                        <button class="Modal__Botom_Close" id="Modal__Botom_Close3"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="Habitaciones">
+
+        <div class="Hab__Cont">
+            <h2>Habitación B</h2>
+            <p>
+                Experimente la grandeza en nuestra suite real. Con múltiples dormitorios y baños, una sala de estar impresionante y vistas panorámicas a la ciudad, esta suite es la definición misma de lujo y exclusividad.
+
+            </p>
+            <button class="btn-1" id="Modal__Open4">información</button>
+        </div>
+
+        <div class="Habs Hab--B"></div>
+
+        
+        <div class="Modal" id="Modal_B">
+            <div class="Modal__Popup">
+                <div class="Modal__Container">
+                    <img src="./img/A.jpg" alt="Imagen del Modal" class="Modal__Img">
+                    <div class="Modal__Content">
+                        <h2>Habitación B</h2>
+                        <p>
+                            Nuestra Suite Real te espera con múltiples dormitorios, baños de ensueño, una sala de estar majestuosa y vistas panorámicas inigualables. Exclusividad y lujo en cada rincón. ¡Reserva tu estadía ahora y vive como un rey!"
+                        </p>
+
+                        <div class="Modal__Servicios">
+
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-group'></i>
+                                <h3>1 - 2</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bx-wifi-off'></i>
+                                <h3>Wi-fi</h3>
+                            </div>
+        
+                            <div class="Modal__Servicios_1">
+                                <i class='bx bxs-lock' style='color:#000000'></i>
+                                <h3>Seguridad</h3>
+                            </div>
+
+                        <button class="Modal__Botom_Close" id="Modal__Botom_Close4"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="Footer" id="Contactenos">
+
+        <div class="Footer__Cont Footer--Cont1">
+            <a href="https://www.google.com/intl/es-419/gmail/about/"><h4>E-mail</h4><p class="Footer__Parrafo">abc@abc.com</p></a>
+        </div>
+
+        <div class="Footer__Cont Footer--Cont1 ">
+            <a href="https://maps.app.goo.gl/Xia8Lzojy258QhaM6"><h4>Ubicación</h4><p class="Footer__Parrafo">Cl. 51 #57-70</p></a>
+        </div>
+
+        <div id="Footer__Cont Footer--Cont2">
+            <h4 class="copy">&copy; HOTEL OKLAB</h4>
+
+            <div class="IconContac">
+                <a href="https://www.facebook.com/?locale=es_LA"><i class='bx bxl-facebook' style='color:#1877f2'></i></a>
+            </div>
+
+            <div class="IconContac">
+                <a href="https://web.whatsapp.com/"> <i class='bx bxl-whatsapp' style='color:#25d366'></i></a>
+            </div>
+
+            <div class="IconContac">
+                <a href="https://www.instagram.com/"><i class='bx bxl-instagram' style='color:#e1306c'></i></a>
+            </div>
+        </div>
+        <div id="Footer__Cont Footer--Cont2">
+            <a asp-controller="CuentaEmpleado" asp-action="Login">¿Eres empleado? Inicia Sesión Aquí</a>
+        </div>
+    </footer>
+
+    <script src="/js/Modals.js"></script>
+
+</body>
+</html>

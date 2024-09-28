@@ -1,0 +1,58 @@
+﻿@model CrudCoreOklab.Models.Reserva
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "Reserva";
+}
+<body>
+    <div class="registro">
+        <div class="registro__info">
+            <div class="registro__info-contenido">
+                <h2 class="registro__titulo">Bienvenido</h2>
+                <p class="registro__texto">
+                    ¡Bienvenido al OKLAB Hotel!
+                    Estamos encantados de darle la bienvenida a nuestro moderno y acogedor espacio. Esperamos que disfrute de una estancia excepcional con nosotros. ¡Bienvenido a su refugio de confort y estilo en OKLAB!
+                </p>
+                <a href="#" class="registro__boton">Más Información</a>
+            </div>
+        </div>
+        <div class="registro__formulario">
+            <h1 class="registro__formulario-titulo">Haz tu Reserva</h1>
+            <form class="registro__formulario-campos" asp-action="Create" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="IdCliente" value="@Model.IdCliente" />
+                <div asp-validation-summary="ModelOnly"></div>
+
+                <div class="registro__formulario-campo">
+                    <label asp-for="FechaInicio" class="registro__formulario-label">Fecha de Inicio</label>
+                    <input asp-for="FechaInicio" type="date" class="registro__formulario-input" />
+                    <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                </div>
+
+                <div class="registro__formulario-campo">
+                    <label asp-for="FechaFin" class="registro__formulario-label">Fecha de Fin</label>
+                    <input asp-for="FechaFin" type="date" class="registro__formulario-input" />
+                    <span asp-validation-for="FechaFin" class="text-danger"></span>
+                </div>
+
+                <div class="registro__formulario-campo">
+                    <label asp-for="NombreHabitacion" class="registro__formulario-label">Selecciona tu Habitación</label>
+                    <select asp-for="NombreHabitacion" class="registro__formulario-select" asp-items="ViewBag.NombreHabitacion"></select>
+                </div>
+
+                <div class="registro__formulario-campo">
+                    <input type="submit" value="Reservar" class="registro__boton" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

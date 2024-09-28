@@ -1,0 +1,87 @@
+﻿@model CrudCoreOklab.Models.Reserva
+@{
+    Layout = "_GraciasLayout";
+}
+@{
+    ViewData["Title"] = "Gracias Por Reservar";
+}
+<body>
+    <div class="details">
+        <div class="details__content">
+            <div class="details__main">
+                <h2 class="details__title">¡BIENVENIDO A OKLAB!</h2>
+                <hr class="details__divider">
+                <div class="details__confirmation">
+                    <img class="details__image" src="~/img/servicio.jpg" alt="">
+                    <div>
+                        <dl class="details__list"><dt class="details__list-detail">
+                                @Html.DisplayNameFor(model => model.IdentificadorUnico)
+                            </dt>
+                            <dd class="details__list-detail">
+                                @Html.DisplayFor(model => model.IdentificadorUnico)
+                            </dd>
+                            <dt class="details__list-detail">
+                                @Html.DisplayNameFor(model => model.FechaInicio)
+                            </dt>
+                            <dd class="details__list-detail">
+                                @Html.DisplayFor(model => model.FechaInicio)
+                            </dd>
+                            <dt class="details__list-detail">
+                                @Html.DisplayNameFor(model => model.FechaFin)
+                            </dt>
+                            <dd class="details__list-detail">
+                                @Html.DisplayFor(model => model.FechaFin)
+                            </dd>
+                            <dt class="details__list-detail">
+                                @Html.DisplayNameFor(model => model.Habitacion)
+                            </dt>
+                            <dd class="details__list-detail">
+                                @Html.DisplayFor(model => model.Habitacion.NombreHabitacion)
+                            </dd>
+                        </dl>
+                    </div>
+                    <a asp-controller="Cuenta" asp-action="Login" class="details__btn">INICIAR SESIÓN</a>
+                </div>
+            </div>
+            <div class="details__secondary">
+                <div class="details__support">
+                    <h2 class="details__support-title">Gracias por reservar</h2>
+                    <p class="details__support-text">
+                        Nos alegra tenerlo con nosotros. Disfrute de una experiencia única en nuestro hotel, donde cada detalle está pensado para su comodidad y satisfacción. ¡Esperamos que su estancia sea inolvidable!
+                    </p>
+                </div>
+                <hr class="details__divider">
+                <footer class="details__footer">
+                    <div class="details__footer-item">
+                        <a href="https://www.google.com/intl/es-419/gmail/about/">
+                            <h4 class="details__footer-title">E-mail</h4>
+                            <p class="details__footer-text">abc@abc.com</p>
+                        </a>
+                    </div>
+                    <div class="details__footer-item">
+                        <a href="https://maps.app.goo.gl/Xia8Lzojy258QhaM6">
+                            <h4 class="details__footer-title">Ubicación</h4>
+                            <p class="details__footer-text">Cl. 51 #57-70</p>
+                        </a>
+                    </div>
+                    <div class="details__footer-copyright">
+                        <h4 class="details__footer-title">&copy; HOTEL OKLAB</h4>
+                        <div class="details__footer-icons">
+                            <a href="https://www.facebook.com/?locale=es_LA"><i class='bx bxl-facebook' style='color:#1877f2'></i></a>
+                            <a href="https://web.whatsapp.com/"><i class='bx bxl-whatsapp' style='color:#25d366'></i></a>
+                            <a href="https://www.instagram.com/"><i class='bx bxl-instagram' style='color:#e1306c'></i></a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

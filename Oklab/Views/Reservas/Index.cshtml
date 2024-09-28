@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CrudCoreOklab.Models.Reserva>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/ProductoCreate.css">
+</head>
+
+<section class="registro__section">
+    <form asp-action="Create" method="get">
+        <button type="submit" class="registro__boton_crear">Crear Nuevo</button>
+    </form>
+    <form method="get" asp-controller="Reservas" asp-action="Index">
+        <input type="text" name="searchString" placeholder="Buscar por Identificador, Cliente o Habitación" value="@ViewData["searchString"]" />
+        <button type="submit">Buscar</button>
+    </form>
+    <h2 class="registro__subtitulo">Lista de Reservas</h2>
+    <div class="registro__tabla-contenedor">
+        <table class="registro__tabla">
+            <thead>
+                <tr>
+                    <th>Identificador Único</th>
+                    <th>Cliente</th>
+                    <th>Habitación</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdentificadorUnico</td>
+                        <td>@item.Cliente.NombreCliente @item.Cliente.ApellidoCliente</td>
+                        <td>@item.Habitacion.NombreHabitacion</td>
+                        <td>@item.FechaInicio.ToShortDateString()</td>
+                        <td>@item.FechaFin.ToShortDateString()</td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.IdReserva">Detalles</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+

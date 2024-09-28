@@ -1,0 +1,77 @@
+﻿@model CrudCoreOklab.Models.Productos
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/ProductoCreate.css">
+</head>
+<body>
+    <div class="registro">
+        <header class="registro__header">
+            <h1 class="registro__titulo">Gestión de productos</h1>
+        </header>
+        <main class="registro__main">
+            <section class="registro__section">
+                <h2 class="registro__subtitulo">Crear Producto</h2>
+                <form class="registro__formulario" asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <input type="hidden" asp-for="IdProducto" />
+                    <div class="registro__formulario-campos">
+                        <div class="registro__formulario-campo">
+                            <label asp-for="Codigo" class="registro__formulario-label">Código</label>
+                            <input asp-for="Codigo" class="registro__formulario-input" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)" />
+                            <span asp-validation-for="Codigo" class="text-danger"></span>
+                        </div>
+                        <div class="registro__formulario-campo">
+                            <label asp-for="IdProveedor" class="registro__formulario-label">Proveedor</label>
+                            <select asp-for="IdProveedor" asp-items="ViewBag.IdProveedor" class="registro__formulario-input">
+                                <option value="">Seleccione un proveedor</option>
+                            </select>
+                            <span asp-validation-for="IdProveedor" class="text-danger"></span>
+                        </div>
+                        <div class="registro__formulario-campo">
+                            <label asp-for="Descripcion" class="registro__formulario-label">Descripción</label>
+                            <input asp-for="Descripcion" class="registro__formulario-input" placeholder="Descripción" />
+                            <span asp-validation-for="Descripcion"></span>
+                        </div>
+                        <div class="registro__formulario-campo">
+                            <label asp-for="Precio" class="registro__formulario-label">Precio</label>
+                            <input asp-for="Precio" class="registro__formulario-input" placeholder="Precio" />
+                            <span asp-validation-for="Precio"></span>
+                        </div>
+                        <div class="registro__formulario-campo">
+                            <label asp-for="Cantidad" class="registro__formulario-label">Cantidad</label>
+                            <input asp-for="Cantidad" class="registro__formulario-input" placeholder="Cantidad" />
+                            <span asp-validation-for="Cantidad"></span>
+                        </div>
+                        <div class="registro__formulario-campo">
+                            <label asp-for="Tipo" class="registro__formulario-label">Tipo de Producto</label>
+                            <select asp-for="Tipo" class="registro__formulario-select">
+                                <option value="">Seleccione una opción</option>
+                                <option value="Servicios">Servicios</option>
+                                <option value="Insumos">Insumos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="registro__formulario-acciones">
+                        <button type="submit" class="registro__boton registro__boton--primario">Guardar</button>
+                    </div>
+                </form>
+            </section>
+            
+        </main>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

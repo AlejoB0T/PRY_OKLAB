@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CrudCoreOklab.Models.Empleado>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/ProductoCreate.css">
+</head>
+
+<section class="registro__section">
+    <form asp-action="Create" method="get">
+        <button type="submit" class="registro__boton_crear">Crear Nuevo</button>
+    </form>
+        <form asp-action="Index" method="get">
+        <input type="text" name="searchString" placeholder="Buscar empleado..." value="@ViewData["CurrentFilter"]" />
+        <button type="submit">Buscar</button>
+    </form>
+    <h2 class="registro__subtitulo">Lista de Empleados</h2>
+    <div class="registro__tabla-contenedor">
+        <table class="registro__tabla">
+            <thead>
+                <tr>
+                    <th>Tipo Documento</th>
+                    <th>Documento</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cargo</th>
+                    <th>Salario</th>
+                    <th>Correo</th>
+                    <th>Celular</th>
+                    <th>Fecha de Inicio de Contrato</th>
+                    <th>Jefe Inmediato</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TipoDocumento.NombreTipoDocumento</td>
+                        <td>@item.DocumentoEmpleado</td>
+                        <td>@item.NombreEmpleado</td>
+                        <td>@item.ApellidoEmpleado</td>
+                        <td>@item.CargoEmpleado</td>
+                        <td>@item.SalarioEmpleado</td>
+                        <td>@item.EmailEmpleado</td>
+                        <td>@item.CelularEmpleado</td>
+                        <td>@item.FechaInicioContratoEmpleado.ToShortDateString()</td>
+                        <td>@item.JefeInmediatoEmpleado</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+

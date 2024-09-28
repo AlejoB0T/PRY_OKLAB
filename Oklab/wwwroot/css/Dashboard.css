@@ -1,0 +1,307 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'poppins';
+    overflow-x: hidden;
+    width: 100%;
+    background-image: url("https://i.pinimg.com/564x/ed/21/6a/ed216a3ca255d6b4bf9505deffb22ba0.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.barra-navegacion__titulo-inicial {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0rem;
+    margin-top: 0.625rem;
+}
+
+.barra-navegacion__logo {
+    width: 100%;
+    height: auto;
+}
+
+.barra-navegacion {
+    width: 16.25rem;
+    height: 43.75rem;
+    background-color: #ffffff;
+    color: #000000;
+    box-sizing: border-box;
+    position: fixed;
+    overflow-y: hidden;
+}
+
+    .barra-navegacion a {
+        color: #000000;
+        font-size: 1.563rem;
+        display: list-item;
+        padding: 0.563rem 1.25rem 0.563rem 1.25rem;
+        text-align: center;
+        z-index: 1;
+    }
+
+        .barra-navegacion a:hover {
+            background-color: #DADADA;
+            transition: 0.5s;
+            text-transform: uppercase;
+        }
+
+.tablero {
+    display: flex;
+    padding-left: 15.625rem;
+}
+
+.tablero__contenido-principal {
+    flex: 1;
+    background-color: hwb(0 85% 15% / 0.247);
+    margin: 0rem 0rem 0rem 0.688rem;
+}
+
+.tablero__navegacion {
+    background-color: #ffffff;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.625rem;
+    margin: 0.313rem 0.688rem 0rem 0.875rem;
+}
+
+.tablero__contenedor-fluido {
+    max-width: 71.25rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tablero__boton {
+    padding: 0.313rem 0.625rem;
+    border-radius: 0.625rem;
+    border: 0.063rem solid #28a745;
+    background-color: #fff;
+    color: #28a745;
+    cursor: pointer;
+}
+
+    .tablero__boton:hover {
+        background-color: #ce967b;
+        border: none;
+        color: #fff;
+        box-shadow: 0 0.438rem 0.313rem rgba(0, 0, 0, .1);
+    }
+
+.tablero__titulo {
+    margin: 0.188rem;
+}
+
+.tablero__contenido {
+    background-color: #fff;
+    width: 97.5%;
+    height: 18.125rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.625rem;
+    margin: 0.5rem 0.5rem 0.5rem 0.875rem;
+}
+
+.tablero__tarjetas-informacion {
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+}
+
+.tablero__tarjeta {
+    width: 50%;
+    height: 5.625rem;
+    background-color: #ffffff;
+    padding: 0.625rem;
+    margin: 0.5rem 0.813rem 0.25rem 0.875rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+}
+
+.tablero__informacion2 {
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+}
+
+.tablero__informacion-a {
+    background-color: #ffffff;
+    width: 46.625rem;
+    height: 18.75rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.625rem;
+    margin: 0rem 0.5rem 0.5rem 0.875rem;
+}
+
+.tablero__informacion-b {
+    background-color: #ffffff;
+    width: 18.75rem;
+    border-radius: 0.625rem;
+    margin: 0rem 0.5rem 0.5rem 0.5rem;
+}
+
+.tablero__graficos {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0.688rem 0.5rem 0.875rem;
+}
+
+.tablero__grafico {
+    width: 49%;
+    background-color: #ffffff;
+    padding: 1.25rem;
+    border-radius: 0.625rem;
+    margin: 0rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+}
+
+.tablero__boton-icono {
+    align-items: center;
+    display: inline;
+    padding: 0rem;
+    font-size: 1.563rem;
+}
+
+.pie-pagina {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    background-color: #000000;
+    margin: 0rem 0rem 0rem 16.25rem;
+    text-decoration: none;
+}
+
+.pie-pagina__informacion {
+    display: inline-block;
+    margin: 2.188rem;
+}
+
+.pie-pagina__informacion-titulo {
+    font-size: 1.563rem;
+    color: white;
+}
+
+.pie-pagina__informacion-parrafo {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0rem 0rem;
+}
+
+.pie-pagina__segundo {
+    display: inline-block;
+    font-size: 1.563rem;
+    color: white;
+}
+
+.pie-pagina__segundo-derechos {
+    font-size: 1.875rem;
+    color: white;
+    margin: 1.813rem 2.188rem 0rem 2.188rem;
+}
+
+.pie-pagina__segundo-iconos {
+    align-items: center;
+    display: inline;
+    padding: 0.625rem;
+    font-size: 1.563rem;
+}
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 47.938rem) {
+    .barra-navegacion {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+
+        .barra-navegacion a {
+            display: block;
+            padding: 0.625rem;
+            font-size: 1.125rem;
+        }
+
+    .tablero {
+        padding-left: 0;
+    }
+
+    .tablero__contenido-principal {
+        margin: 0.625rem;
+    }
+
+    .tablero__navegacion {
+        margin: 0.625rem;
+    }
+
+    .tablero__contenedor-fluido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tablero__tarjetas-informacion,
+    .tablero__informacion2 {
+        flex-direction: column;
+    }
+
+    .tablero__tarjeta,
+    .tablero__informacion-a,
+    .tablero__informacion-b {
+        width: 100%;
+        margin: 0.625rem 0;
+    }
+
+    .tablero__graficos {
+        flex-direction: column;
+    }
+
+    .tablero__grafico {
+        width: 100%;
+        margin: 0.625rem 0;
+    }
+
+    .pie-pagina {
+        margin: 0;
+    }
+
+    .pie-pagina__informacion,
+    .pie-pagina__segundo {
+        display: block;
+        margin: 1.25rem 0;
+    }
+}
+
+@media (min-width: 48rem) and (max-width: 61.938rem) {
+    .barra-navegacion {
+        width: 12.5rem;
+    }
+
+    .tablero {
+        padding-left: 13.75rem;
+    }
+
+    .tablero__tarjetas-informacion,
+    .tablero__informacion2 {
+        flex-wrap: wrap;
+    }
+
+    .tablero__tarjeta,
+    .tablero__informacion-a,
+    .tablero__informacion-b {
+        width: calc(50% - 1.25rem);
+        margin: 0.625rem;
+    }
+
+    .tablero__graficos {
+        flex-wrap: wrap;
+    }
+
+    .tablero__grafico {
+        width: calc(50% - 1.25rem);
+        margin: 0.625rem;
+    }
+}

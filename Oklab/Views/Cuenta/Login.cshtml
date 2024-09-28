@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+  
+  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Iniciar Sesión</title>
+        <link rel="stylesheet" href="../css/forms2.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        
+    </head>
+    <body>
+    <div class="container-form">
+
+        <div class="form-informacion">
+
+            <div class="information-childs">
+                <h1>INICIA SESION</h1>
+                <form asp-action="Login" method="post">
+                    <div>
+                        <label>
+                            <i class='bx bx-user bx-flashing'></i>
+                            <input type="text" placeholder="Ingrese Documento" id="documento" name="documento" required>
+                        </label>
+                    </div><br>
+                    <div>
+                        <label>
+                            <i class='bx bx-lock-alt bx-flashing'></i>
+                            <input type="password" placeholder="Ingrese Contraseña" id="password" name="password" required>
+                        </label>
+                    </div><br>
+
+                    <a asp-controller="PasswordReset" asp-action="SendPasswordResetLink">¿Olvidaste tu contraseña?</a><br>
+
+                    <input type="submit" class="btn-1" value="Iniciar Sesión"><br>
+
+
+                </form>
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">@ViewBag.Error</div>
+                }
+
+            </div>
+        </div>
+        <div class="informacion">
+            <div class="form-child">
+                <h2> Bienvenido</h2>
+                <p>¡Bienvenido al OKLAB Hotel! Estamos encantados de darle la bienvenida a nuestro moderno y acogedor espacio. Esperamos que disfrute de una estancia excepcional con nosotros. ¡Bienvenido a su refugio de confort y estilo en OKLAB!</p><br>
+
+            </div><br>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,172 @@
+﻿@model CrudCoreOklab.Models.ViewModels.DashboardViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero</title>
+    <link rel="stylesheet" href="/css/Dashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <nav class="barra-navegacion">
+        <a href="#Nosotros"> <h2 class="barra-navegacion__titulo-inicial">OKLAB</h2></a>
+        <img src="~/img/logo.png" alt="logoOklab" class="barra-navegacion__logo">
+        <label>
+            <a href="#">Dashboard</a> <br>
+        </label>
+        <label>
+            <a asp-controller="Empleados" asp-action="Index">Empleados</a><br>
+        </label>
+        <label>
+            <a asp-controller="Reservas" asp-action="Index">Reservas</a><br>
+        </label>
+        <label>
+            <a asp-controller="Productos" asp-action="Index">Productos</a><br>
+        </label>
+        <label>
+            <a asp-controller="Proveedores" asp-action="Index">Proveedores</a><br>
+        </label>
+    </nav>
+
+    <div class="tablero">
+        <div class="tablero__contenido-principal">
+            <nav class="tablero__navegacion">
+                <div class="tablero__contenedor-fluido">
+                    <h2 class="tablero__titulo">Tablero OKLAB</h2>
+                    <div>
+                        <a href="dash.html" download>
+                            <button type="button" class="tablero__boton">
+                                <i class='bx bx-download tablero__boton-icono'></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="tablero__tarjetas-informacion">
+                <div class="tablero__tarjeta">
+                    <h3 class="tablero__tarjeta-titulo">MES</h3>
+                    <p class="tablero__tarjeta-valor">245</p>
+                </div>
+                <div class="tablero__tarjeta">
+                    <h3 class="tablero__tarjeta-titulo">DIA</h3>
+                    <p class="tablero__tarjeta-valor">12.345</p>
+                </div>
+                <div class="tablero__tarjeta">
+                    <h3 class="tablero__tarjeta-titulo">AÑO</h3>
+                    <p class="tablero__tarjeta-valor">5,678</p>
+                </div>
+            </div>
+
+            <div class="tablero__contenido">
+                <section>
+                    <h1 class="tablero__contenido-titulo">Reservas por mes</h1>
+                    <canvas id="myChart" height="97%" width="400%"></canvas>
+                </section>
+            </div>
+
+            <div class="tablero__graficos">
+                <div class="tablero__grafico">
+                    <p class="tablero__grafico-informacion"></p>
+                </div>
+                <div class="tablero__grafico">
+                    <p class="tablero__grafico-informacion">Reservas por habitación</p>
+                </div>
+            </div>
+
+            <div class="tablero__informacion2">
+                <div class="tablero__informacion-a">
+                    <section>
+                        <canvas id="MyBar" height="70px" width="200px"></canvas>
+                    </section>
+                </div>
+                <div class="tablero__informacion-b">
+                    <section>
+                        <canvas id="MyPie" width="80%"></canvas>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="pie-pagina" id="Contáctenos">
+        <div class="pie-pagina__contenido"></div>
+        <div class="pie-pagina__informacion">
+            <a href="https://www.google.com/intl/es-419/gmail/about/"><h4 class="pie-pagina__informacion-titulo">E-mail</h4><p class="pie-pagina__informacion-parrafo">abc@abc.com</p></a>
+        </div>
+        <div class="pie-pagina__informacion">
+            <a href="https://maps.app.goo.gl/Xia8Lzojy258QhaM6"><h4 class="pie-pagina__informacion-titulo">Ubicación</h4><p class="pie-pagina__informacion-parrafo">Cl. 51 #57-70</p></a>
+        </div>
+
+        <div class="pie-pagina__segundo">
+            <h4 class="pie-pagina__segundo-derechos">&copy; HOTEL OKLAB</h4>
+
+            <div class="pie-pagina__segundo-iconos">
+                <a href="https://www.facebook.com/?locale=es_LA"><i class='bx bxl-facebook pie-pagina__segundo-icono' style='color:#1877f2'></i></a>
+            </div>
+
+            <div class="pie-pagina__segundo-iconos">
+                <a href="https://web.whatsapp.com/"> <i class='bx bxl-whatsapp pie-pagina__segundo-icono' style='color:#25d366'></i></a>
+            </div>
+
+            <div class="pie-pagina__segundo-iconos">
+                <a href="https://www.instagram.com/"><i class='bx bxl-instagram pie-pagina__segundo-icono' style='color:#e1306c'></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        // Usar los datos del modelo para los labels (meses) y datos (cantidad de reservas)
+        const labels = @Html.Raw(Json.Serialize(Model.ReservasPorMes.Select(r => r.Meses)));
+        const data = @Html.Raw(Json.Serialize(Model.ReservasPorMes.Select(r => r.CantidadReservas)));
+
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Reservas',
+                    data: data,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+
+</script>
+
+<script>
+    var pieCtx = document.getElementById('MyPie').getContext('2d');
+    var pieChart = new Chart(pieCtx, {
+        type: 'pie',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.HabitacionFavorita.Select(h => h.Habitacion))),
+            datasets: [{
+                label: 'Habitación Favorita',
+                data: @Html.Raw(Json.Serialize(Model.HabitacionFavorita.Select(h => h.Porcentaje))),
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+                borderWidth: 1
+            }]
+        }
+    });
+</script>

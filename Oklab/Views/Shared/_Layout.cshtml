@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script>
+        function validarDocumento(event) {
+            const input = event.target;
+            input.value = input.value.replace(/\D/g, '');
+        }
+
+        function validarCelular(event) {
+            const input = event.target;
+            input.value = input.value.replace(/\D/g, '');
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const fechaInicioInput = document.getElementById('FechaInicio');
+            const fechaFinInput = document.getElementById('FechaFin');
+
+            // Deshabilitar fechas pasadas en fecha de inicio
+            const today = new Date().toISOString().split('T')[0];
+            fechaInicioInput.setAttribute('min', today);
+
+            // Asegurar que la fecha de fin sea al menos un día después de la fecha de inicio
+            fechaInicioInput.addEventListener('change', () => {
+                const fechaInicio = new Date(fechaInicioInput.value);
+                fechaInicio.setDate(fechaInicio.getDate() + 1);
+                const minFechaFin = fechaInicio.toISOString().split('T')[0];
+                fechaFinInput.setAttribute('min', minFechaFin);
+            });
+
+            fechaFinInput.addEventListener('change', () => {
+                const fechaInicio = new Date(fechaInicioInput.value);
+                const fechaFin = new Date(fechaFinInput.value);
+                if (fechaFin <= fechaInicio) {
+                    alert('La fecha de fin debe ser al menos un día después de la fecha de inicio.');
+                    fechaFinInput.value = '';
+                }
+            });
+        });
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CrudCoreOklab.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <div>
+        @RenderBody()
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

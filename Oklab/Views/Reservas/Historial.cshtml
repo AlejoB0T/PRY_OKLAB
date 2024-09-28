@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CrudCoreOklab.Models.Reserva>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial</title>
+    <link rel="stylesheet" href="/css/tables.css">
+</head>
+<body>
+    <body>
+        <main class="table">
+            <section class="table_header">
+                <h1>HISTORIAL</h1>
+            </section> 
+            <button>
+                <a asp-action="Create" asp-route-idCliente="@Model.First().IdCliente" class="btn btn-primary">Nueva Reserva</a>
+            </button>
+            <section class="table_body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Identificador Reserva</th>
+                            <th>Habitación</th>
+                            <th>Fecha de Inicio</th>
+                            <th>Fecha de Fin</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var reserva in Model)
+                        {
+                            <tr>
+                                <td>@reserva.Cliente *</td>
+                                <td>@reserva.IdentificadorUnico</td>
+                                <td>@reserva.Habitacion.NombreHabitacion</td>
+                                <td>@reserva.FechaInicio</td>
+                                <td>@reserva.FechaFin</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </body>
+
+</body>
+</html>

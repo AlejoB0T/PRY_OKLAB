@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CrudCoreOklab.Models.Productos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/ProductoCreate.css">
+</head>
+
+<section class="registro__section">
+    <form asp-action="Create" method="get">
+        <button type="submit" class="registro__boton_crear">Crear Nuevo</button>
+    </form>
+    <form method="get" asp-controller="Productos" asp-action="Index">
+        <input type="text" name="searchString" placeholder="Buscar por Código, Descripción o Tipo" value="@ViewData["searchString"]" />
+        <button type="submit">Buscar</button>
+    </form>
+    <h2 class="registro__subtitulo">Lista de Productos</h2>
+    <div class="registro__tabla-contenedor">
+        <table class="registro__tabla">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Tipo</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var producto in Model)
+                {
+                    <tr>
+                        <td>@producto.Codigo</td>
+                        <td>@producto.Descripcion</td>
+                        <td>@producto.Precio</td>
+                        <td>@producto.Cantidad</td>
+                        <td>@producto.Tipo</td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

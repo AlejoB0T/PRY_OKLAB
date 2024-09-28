@@ -1,0 +1,73 @@
+﻿@model CrudCoreOklab.Models.Cliente
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+
+<body>
+    <div class="registro">
+        <div class="registro__info">
+            <div class="registro__info-contenido">
+                <h2 class="registro__titulo">Bienvenido</h2>
+                <p class="registro__texto">
+                    ¡Bienvenido al OKLAB Hotel!
+
+                    Estamos encantados de darle la bienvenida a nuestro moderno y acogedor espacio. Esperamos que disfrute de una estancia excepcional con nosotros. ¡Bienvenido a su refugio de confort y estilo en OKLAB!
+                </p>
+                <a asp-controller="Cuenta" asp-action="Login" class="registro__boton">Iniciar Sesión</a>
+            </div>
+        </div>
+        <div class="registro__formulario">
+            <div class="registro__formulario-contenido">
+                <h1 class="registro__formulario-titulo">REGISTRATE</h1>
+                <form class="registro__formulario-campos" asp-action="Create">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="registro__formulario-campo">
+                        <select asp-for="IdTipoDocumento" asp-items="ViewBag.IdTipoDocumento" class="registro__formulario-select" name="IdTipoDocumento">
+                            <option value="" >Seleccione tipo de documento</option>
+                        </select>
+                    </div>
+                    <div class="registro__formulario-campo">
+                        <label class="registro__formulario-label">Número de Documento</label>
+                        <input asp-for="DocumentoCliente" class="registro__formulario-input" type="text" name="DocumentoCliente" placeholder="123456789" />
+                    </div>
+                    <div class="registro__formulario-campo">
+                        <label class="registro__formulario-label">Contraseña</label>
+                        <input asp-for="Contrasenha" class="registro__formulario-input" type="password" name="Contrasenha" />
+                    </div>
+                    <div class="registro__formulario-campo">
+                        <label class="registro__formulario-label">Nombre Completo</label>
+                        <input asp-for="NombreCliente" class="registro__formulario-input" type="text" name="NombreCliente" placeholder="Juan Pepito " />
+                    </div>
+                    <div class="registro__formulario-campo">
+                        <label class="registro__formulario-label">Apellido Completo</label>
+                        <input asp-for="ApellidoCliente" class="registro__formulario-input" type="text" name="ApellidoCliente" placeholder="Pérez Sánchez" />
+                    </div>
+                    <div class="registro__formulario-campo">
+                        <label class="registro__formulario-label">Correo electrónico</label>
+                        <input asp-for="EmailCliente" class="registro__formulario-input" type="email" name="EmailCliente" placeholder="ChanchitoFeliz777@gmail.com" />
+                    </div>
+                    <div class="registro__formulario-campo">
+                        <label class="registro__formulario-label">Número De Celular</label>
+                        <input asp-for="CelularCliente" class="registro__formulario-input" type="tel" name="CelularCliente" placeholder="323 32233323" />
+                    </div>
+                    <div class="registro__formulario-enviar">
+                        <input type="submit" value="Continuar" class="registro__boton registro__boton-create" />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

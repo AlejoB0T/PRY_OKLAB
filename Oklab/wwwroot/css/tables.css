@@ -1,0 +1,138 @@
+﻿body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://i.pinimg.com/564x/75/de/07/75de0749aa17d31912274fc15ba4545e.jpg) center / cover;
+}
+
+main.table {
+    width: 90vw;
+    height: 90vh;
+    backdrop-filter: blur(7px);
+    background-color: #fff5;
+    box-shadow: 0 .4rem .8rem #0005;
+    overflow: scroll;
+}
+
+.table_header {
+    width: 97%;
+    height: 10%;
+    background-color: #fff4;
+    padding: .8rem 1rem;
+    text-align: center;
+}
+
+.table_body {
+    width: 95%;
+    height: calc(89% - .8rem);
+    background-color: #fffb;
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+    .table_body::-webkit-scrollbar {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    .table_body::-webkit-scrollbar-thumb {
+        border-radius: .5rem;
+        background-color: #0004;
+        /* visibility: hidden; */
+    }
+
+    .table_body:hover::-webkit-scrollbar-thumb {
+        visibility: visible;
+    }
+
+table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+th, td {
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #d5d1defe;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+    main.table {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .table_body {
+        height: calc(90% - 0.8rem);
+    }
+
+    table {
+        min-width: 700px;
+    }
+
+    th, td {
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    main.table {
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .table_body {
+        height: calc(90% - 0.8rem);
+    }
+
+    table {
+        min-width: 800px;
+    }
+
+    th, td {
+        padding: 1.2rem;
+    }
+}
+
+@media (min-width: 1201px) {
+    main.table {
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .table_body {
+        height: calc(90% - 0.8rem);
+    }
+
+    table {
+        min-width: 900px;
+    }
+
+    th, td {
+        padding: 1.5rem;
+    }
+}
